@@ -1,0 +1,18 @@
+
+
+<% content_for :title, "Crop categories" %>
+
+<h1>Crop categories</h1>
+
+<div id="crop_categories">
+  <% @crop_categories.each do |crop_category| %>
+    <%= render crop_category %>
+    <p>
+      <%= link_to "Show this crop category", crop_category %>
+    </p>
+  <% end %>
+</div>
+
+
+
+<%= link_to "Add crop category", new_crop_category_path , class: "btn btn-outline-dark mx-2" %>

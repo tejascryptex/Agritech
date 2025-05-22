@@ -1,0 +1,10 @@
+
+
+<%= render @crop_category %>
+
+<div>
+  <%= link_to "Edit this crop category", edit_crop_category_path(@crop_category) %> |
+  <%= link_to "Back to crop categories", crop_categories_path %>
+
+  <%= button_to "Destroy this crop category", @crop_category, method: :delete %>
+</div>

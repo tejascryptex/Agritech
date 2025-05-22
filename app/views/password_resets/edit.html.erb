@@ -1,0 +1,7 @@
+<h1>Reset your password</h1>
+
+<%= form_with url: password_reset_path(token: params[:token]), method: :patch do %>
+  <%= label_tag :password %>
+  <%= password_field_tag "user[password]" %>
+  <%= submit_tag "Reset Password" %>
+<% end %>

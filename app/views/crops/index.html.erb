@@ -1,0 +1,14 @@
+
+<% content_for :title, "Crops" %>
+
+<h1>Crops</h1>
+
+<div id="crops">
+  <% @crops.each do |crop| %>
+    <%= render crop %>
+  <% end %>
+    <%= link_to "Add crop", new_crop_path, class: "btn btn-outline-dark mx-2" %>
+</div>
+
+
+

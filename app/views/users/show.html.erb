@@ -1,0 +1,79 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10 col-sm-12">
+
+      
+      <div class="card shadow-lg rounded-4">
+        <div class="card-body">
+            
+            <div class="container mt-5">
+              <div class="row justify-content-center align-items-center">
+              <div class="col-md-3 text-center">
+              <% if @user.photo.attached? %>
+                <%= image_tag @user.photo, class: 'rounded-circle img-fluid shadow', style: 'width: 150px; height: 150px; border: 3px solid #f0f0f0;' %>
+              <% else %>
+                <%= image_tag 'user.png', class: 'rounded-circle img-fluid shadow', style: 'width: 150px; height: 150px; border: 3px solid #f0f0f0;' %>
+              <% end %>
+            </div>
+
+            <div class="col-md-6">
+              <div class="p-3 border rounded shadow-sm bg-light text-center">
+                <h4 class="font-weight-bold text-dark mb-1">Name: <%= @user.name.upcase %></h4>
+                <p class=" mb-1"> <%= @user.email %></p>
+                <p class="mb-1">You are a <%= @user.role.upcase %></p>
+                <p class=" mb-0">Your Location: <%= @user.location.upcase %></p>
+              </div>
+            </div>
+            </div>
+            </div>
+            <br>
+            <hr>
+
+          <div class="row text-center">
+            <div class="col-md-4 mb-4">
+              <%= link_to new_crop_path, class: "btn btn-light rounded-pill shadow-sm p-3 w-100" do %>
+              
+                <h6 class="mt-2">Add New Crop</h6>
+              <% end %>
+            </div>
+            <div class="col-md-4 mb-4">
+              <%= link_to listings_path, class: "btn btn-light rounded-pill shadow-sm p-3 w-100" do %>
+               
+                <h6 class="mt-2">Crops Listing</h6>
+              <% end %>
+            </div>
+            <div class="col-md-4 mb-4">
+              <%= link_to crops_labels_path(@user), class: "btn btn-light rounded-pill shadow-sm p-3 w-100" do %>
+              
+                <h6 class="mt-2">Crop Label</h6>
+              <% end %>
+            </div>
+
+            <div class="col-md-4 mb-4">
+              <%= link_to crop_categories_path(@user), class: "btn btn-light rounded-pill shadow-sm p-3 w-100" do %>
+          
+                <h6 class="mt-2">Crop Category</h6>
+              <% end %>
+            </div>
+
+            <div class="col-md-4 mb-4">
+              <%= link_to edit_user_path(@user), class: "btn btn-light rounded-pill shadow-sm p-3 w-100" do %>
+               
+                <h6 class="mt-2">User Settings</h6>
+              <% end %>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+     
+      <div class="d-flex justify-content-center mt-4">
+        
+        
+        <%= button_to "Delete Account", @user, class: "btn btn-danger rounded-pill px-4 py-2 mx-2", method: :delete, data: { confirm: 'Are you sure you want to delete your account?' } %>
+      </div>
+
+    </div>
+  </div>
+</div>

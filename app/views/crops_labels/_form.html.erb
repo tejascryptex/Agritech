@@ -1,0 +1,35 @@
+<%= form_with(model: crops_label) do |form| %>
+  <% if crops_label.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(crops_label.errors.count, "error") %> prohibited this crops_label from being saved:</h2>
+
+      <ul>
+        <% crops_label.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="container py-5 h-100">
+    <div class="row justify-content-center align-items-center h-150">
+      <div class="col-12 col-lg-9 col-xl-7">
+        <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+          <div class="card-body p-4 p-md-5">
+          <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center">List Your Crops</h3>
+
+       <div>
+       <%= form.label :crop_id, style: "display: block" %>
+       <%= form.select :crop_id, options_from_collection_for_select(Crop.all, :id, :name),  class: "form-control" %>
+       </div>
+
+       <div>
+        <%= form.label :crop_category_id, style: "display: block" %>
+        <%= form.select :crop_category_id, options_from_collection_for_select(CropCategory.all, :id, :category_name),  class: "form-control" %>
+ 
+       </div>
+
+    <div>
+    <%= form.submit %>
+  </div>
+<% end %>

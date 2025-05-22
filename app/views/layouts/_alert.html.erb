@@ -1,0 +1,19 @@
+<div class="alert alert-warning auto-dismiss" role="alert">
+  
+  <%= notice %>
+  
+  
+</div>
+
+<script>
+  // Automatically dismiss the alert after 3 seconds (3000 ms)
+  setTimeout(function() {
+    const alert = document.querySelector('.auto-dismiss');
+    if (alert) {
+      alert.classList.add('fade');
+      setTimeout(function() {
+        alert.remove();  // Remove the alert from the DOM
+      }, 300);  // Wait for the fade-out effect to complete before removing it
+    }
+  }, 3000);  // 3000 ms = 3 seconds
+</script>

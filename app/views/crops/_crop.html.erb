@@ -1,0 +1,27 @@
+<div id="<%= dom_id crop %>">
+
+<body class="bg-dark text-white">
+
+<div class="card shadow text-bg-light text-black mb-3 card-color" style="width: 100%; max-width: 300px;">
+
+
+  <h2 class="card-title">
+    <strong><%= crop.name.upcase %></strong>
+  </h2><hr>
+
+  <p>
+    <strong>Description:</strong>
+    <%= crop.description %>
+  </p>
+
+  <p>
+    <strong>User:</strong>
+    <%= crop.user.name %>
+  </p>
+  <p>
+  <%= link_to "Show this crop", crop , class: "btn btn-outline-dark mx-2"%>
+  
+  <%= link_to "New crop", new_crop_path, class: "btn btn-outline-dark mx-2" %>
+  </p>
+
+</div>

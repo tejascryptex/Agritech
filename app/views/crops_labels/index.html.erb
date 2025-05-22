@@ -1,0 +1,17 @@
+
+
+<% content_for :title, "Crops labels" %>
+
+<h1>Crops labels</h1>
+
+<div id="crops_labels">
+  <% @crops_labels.each do |crops_label| %>
+    <%= render crops_label %>
+    <p>
+      <%= link_to "Show this crops label", crops_label %>
+    </p>
+  <% end %>
+</div>
+
+
+<%= link_to "New crops label", new_crops_label_path, class: "btn btn-outline-dark mx-2" %>

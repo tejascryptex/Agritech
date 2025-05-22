@@ -1,0 +1,54 @@
+<%= form_with(model: crop) do |form| %>
+  <% if crop.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(crop.errors.count, "error") %> prohibited this crop from being saved:</h2>
+
+      <ul>
+        <% crop.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="container py-5 h-100">
+    <div class="row justify-content-center align-items-center h-150">
+      <div class="col-12 col-lg-9 col-xl-7">
+        <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+          <div class="card-body p-4 p-md-5">
+          <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Crop Information</h3>
+  <form>
+
+    <div class="field form-group">
+      <%=form.label :name , style: "display: block" %>
+      <%= form.text_field :name, required:true,class:"form-control" , placeholder:"Enter Crop name"%>
+    </div>
+    <br>
+
+    <div class="field form-group">
+      <%= form.label :description, style: "display: block" %>
+      <%= form.text_field :description,required: true ,class:"form-control" ,placeholder:"Descrption"  %>
+    </div>
+    <br>
+
+    <div class="field form-group">
+    <%= form.label :user_id, "Select User", style: "display: block" %>
+    <%= form.collection_select :user_id, User.all, :id, :name, prompt: "Choose a user", class: "form-control" %>
+    </div>
+    <br>
+  
+
+ 
+    <div style="text-align: center; margin-top: 20px;",class="btn btn-primary">
+      <%= form.submit %>
+    </div>
+  </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<% end %>

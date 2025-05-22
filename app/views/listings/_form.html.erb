@@ -1,0 +1,70 @@
+<%= form_with(model: listing) do |form| %>
+  <% if listing.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
+
+      <ul>
+        <% listing.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="container py-5 h-100">
+    <div class="row justify-content-center align-items-center h-150">
+      <div class="col-12 col-lg-9 col-xl-7">
+        <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+          <div class="card-body p-4 p-md-5">
+          <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center">List Your Crops</h3>
+  <form>
+    <div class="field form-group">
+    <b>Welcome ,<%= current_user&.name %></b>
+    <%# form.label :user_id, current_user&.name, style: "display: block" %>
+    <%# form.collection_select :user_id, current_user, :id, :name, prompt: "Choose a user", class: "form-control" %>
+    </div>
+    <br>
+
+    <div class="field form-group">
+      <%=form.label :title , style: "display: block" %>
+      <%= form.text_field :title, required:true,class:"form-control" , placeholder:"Title for Your Product"%>
+    </div>
+    <br>
+
+    <div class="field form-group">
+      <%= form.label :description, style: "display: block" %>
+      <%= form.text_field :description,required: true ,class:"form-control" ,placeholder:"Descrption"  %>
+    </div>
+    <br>
+
+    <div class="field form-group">
+    <%= form.label :location, style: "display: block" %>
+    <%= form.text_field :location,required: true ,class:"form-control" ,placeholder:"location"  %>
+    </div>
+    <br>
+
+    <div class="field form-group">
+    <%= form.label :price, style: "display: block" %>
+    <%= form.text_field :price,required: true ,class:"form-control" ,placeholder:"Price per Kg"  %>
+    </div>
+    <br>
+
+    <div class="field form-group">
+    <%= form.label :crop_id, "Select Crop", style: "display: block" %>
+    <%= form.collection_select:crop_id, Crop.all, :id, :name, prompt: "Choose a Crops", class: "form-control" %>
+    </div>
+    <br>
+
+  <div style="text-align: center; margin-top: 20px;",class="btn btn-primary">
+      <%= form.submit %>
+    </div>
+  
+  </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<% end %>

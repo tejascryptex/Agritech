@@ -1,0 +1,2 @@
+module CropsLabelsHelper
+end

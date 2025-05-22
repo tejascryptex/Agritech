@@ -1,0 +1,10 @@
+
+
+<%= render @crops_label %>
+
+<div>
+  <%= link_to "Edit this crops label", edit_crops_label_path(@crops_label) %> |
+  <%= link_to "Back to crops labels", crops_labels_path %>
+
+  <%= button_to "Destroy this crops label", @crops_label, method: :delete %>
+</div>
